@@ -1,0 +1,103 @@
+.calculator-container
+{
+    border:1px solid red;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-direction: column;
+    margin-top:50px;
+    width:40%;
+
+}
+.display-container
+{
+    background:black;
+    width:100%;
+    height:100px;
+}
+
+.keys-container
+{
+    background:silver;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:repeat(5,100px);
+    grid-gap:1px;
+    grid-template-areas:
+    "plus-sign minus-sign multiply-sign division-sign"
+    "number7 number8 number9 equal-sign"
+    "number4 number5 number6 equal-sign"
+    "number1 number2 number3 equal-sign"
+    "number0 period-sign AC-sign equal-sign";
+}
+.plus-sign
+{
+    grid-area:plus-sign;
+}
+.minus-sign
+{
+    grid-area:minus-sign;
+}
+.multiply-sign
+{
+ grid-area: multiply-sign;
+}
+.division-sign
+{
+    grid-area:division-sign;
+}
+.number7
+{
+    grid-area:number7;
+}
+.number8
+{
+    grid-area:number8;
+}
+.number9
+{
+    grid-area:number9;
+}
+.equal-sign
+{
+    grid-area:equal-sign;
+}
+.number4
+{
+    grid-area:number4;
+}
+.number5
+{
+    grid-area:number5;
+}
+.number6
+{
+    grid-area:number6;
+}
+.number1
+{
+    grid-area:number1;
+}
+.number2
+{
+    grid-area:number2;
+}
+.number3
+{
+    grid-area:number3;
+}
+.number0
+{
+    grid-area:number0;
+}
+.period-sign
+{
+    grid-area:period-sign;
+}
+.AC-sign
+{
+   grid-area:AC-sign
+}
+
+
+
