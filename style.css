@@ -1,19 +1,62 @@
+
+/* variables */
+
+:root
+{
+    --operator-color:silver;
+    --numbers-color:white;
+    --keys-font-size:3rem;
+    --keys-border:20px;
+}
+
+
+
+  /* Main Classes */
+
+
+#display
+{
+    color:white;
+    font-size:4.5rem;
+    float:right;
+    padding:30px;
+}
+
+.operators
+{
+    background:var(--operator-color);
+    font-size:2.5rem;
+}
+
+.numbers
+{
+    background:var(--numbers-color);
+    font-size: var(--keys-font-size);
+}
+
+
+
+    /* LAYOUT  */
+
 .calculator-container
 {
-    border:1px solid red;
+    
     margin-left:auto;
     margin-right:auto;
     display:flex;
     flex-direction: column;
     margin-top:50px;
     width:40%;
+    
 
 }
 .display-container
 {
     background:black;
     width:100%;
-    height:100px;
+    height:120px;
+    border-radius:10px;
+
 }
 
 .keys-container
@@ -21,14 +64,14 @@
     background:silver;
     display:grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows:repeat(5,100px);
+    grid-template-rows:repeat(5,130px);
     grid-gap:1px;
     grid-template-areas:
     "plus-sign minus-sign multiply-sign division-sign"
     "number7 number8 number9 equal-sign"
     "number4 number5 number6 equal-sign"
     "number1 number2 number3 equal-sign"
-    "number0 period-sign AC-sign equal-sign";
+    "number0 decimal-sign clear-sign equal-sign";
 }
 .plus-sign
 {
@@ -61,6 +104,10 @@
 .equal-sign
 {
     grid-area:equal-sign;
+    background:orange;
+    font-size: var(--keys-font-size);
+    border-bottom-left-radius: var(--keys-border);
+    
 }
 .number4
 {
@@ -89,14 +136,15 @@
 .number0
 {
     grid-area:number0;
+    border-bottom-left-radius: var(--keys-border);
 }
-.period-sign
+.decimal-sign
 {
-    grid-area:period-sign;
+    grid-area:decimal-sign;
 }
-.AC-sign
+.clear-sign
 {
-   grid-area:AC-sign
+   grid-area:clear-sign
 }
 
 

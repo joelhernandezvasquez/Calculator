@@ -11,32 +11,80 @@
     <div class="calculator-container">
 
       <div class="display-container">
-
+        <label id="display">0</label>
       </div>
 
       <div class="keys-container">
   
-         <button class="plus-sign"> + </button>
-         <button class="minus-sign"> - </button>
-         <button class="multiply-sign"> X </button>
-         <button class="division-sign"> / </button>
-         <button class="number7"> 7 </button>
-         <button class="number8"> 8 </button>
-         <button class="number9"> 9 </button>
-         <button class="equal-sign"> = </button>
-         <button class="number4"> 4 </button>
-         <button class="number5"> 5 </button>
-         <button class="number6"> 6 </button>
-         <button class="number1"> 1 </button>
-         <button class="number2"> 2 </button>
-         <button class="number3"> 3 </button>
-         <button class="number0"> 0 </button>
-         <button class="period-sign"> . </button>
-         <button class="AC-sign"> AC </button>
+         <button class="plus-sign operators" data-action="add"> + </button>
+         <button class="minus-sign operators" data-action="substract"> - </button>
+         <button class="multiply-sign operators" data-action="multiply"> X </button>
+         <button class="division-sign operators" data-action="divide"> / </button>
+         <button class="number7 numbers"> 7 </button>
+         <button class="number8 numbers"> 8 </button>
+         <button class="number9 numbers"> 9 </button>
+         <button class="equal-sign" data-action="calculate"> = </button>
+         <button class="number4 numbers"> 4 </button>
+         <button class="number5 numbers"> 5 </button>
+         <button class="number6 numbers"> 6 </button>
+         <button class="number1 numbers"> 1 </button>
+         <button class="number2 numbers"> 2 </button>
+         <button class="number3 numbers"> 3 </button>
+         <button class="number0 numbers"> 0 </button>
+         <button class="decimal-sign numbers" data-action="decimal">. </button>
+         <button class="clear-sign numbers" data-action="clear">AC </button>
 
       </div>
 
     </div>
+
+    <script>
+   const keys = document.querySelector(".keys-container");
+
+   keys.addEventListener("click",e=>{
+
+      if(e.target.closest("button"))
+      {
+         const key = e.target;
+         const action =key.dataset.action;
+         
+         if(action==="add" || action==="substract" || action==="multiply" || action==="divide")
+         {
+           console.log("operators key");
+           return;
+         }
+         if(action==="decimal")
+         {
+           console.log("decimal");
+           return;
+         }
+
+         if(action==="calculate")
+         {
+           console.log("calculate");
+           return;
+         }
+
+         if(action==="clear")
+         {
+           console.log("clear");
+           return;
+         }
+         if(!action)
+         {
+           console.log("key number");
+           return;
+         }
+
+        
+
+          
+      }
+   })
+    
+
+    
+    </script>
 
 </body>
 
