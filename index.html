@@ -3,6 +3,8 @@
 <head>
 
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="normalize.css" rel="stylesheet" type="text/css">
+
 </head>
 
 
@@ -11,7 +13,7 @@
     <div class="calculator-container">
 
       <div class="display-container">
-        <label id="display">0</label>
+          <div id="display">0</div>
       </div>
 
       <div class="keys-container">
@@ -64,10 +66,9 @@
             }
             else
             {
-              display.textContent = displayNum + keyContent; 
+              display.textContent = `${displayNum} ${keyContent}`;
+           
             }
-             
-            
           }
           
           if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
@@ -77,8 +78,7 @@
           }
           if(action==="decimal")
           {
-            console.log("decimal key pressed");
-            return;
+            display.textContent = displayNum + ".";
           }
 
           if(action==="calculate")
