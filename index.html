@@ -41,48 +41,61 @@
     <script>
    const keys = document.querySelector(".keys-container");
 
-   keys.addEventListener("click",e=>{
 
+    keys.addEventListener("click",e=>{
+      
+      const display = document.querySelector("#display");
+      
       if(e.target.closest("button"))
       {
          const key = e.target;
-         const action =key.dataset.action;
+         const action = key.dataset.action;
          
-         if(action==="add" || action==="substract" || action==="multiply" || action==="divide")
-         {
-           console.log("operators key");
-           return;
-         }
-         if(action==="decimal")
-         {
-           console.log("decimal");
-           return;
-         }
-
-         if(action==="calculate")
-         {
-           console.log("calculate");
-           return;
-         }
-
-         if(action==="clear")
-         {
-           console.log("clear");
-           return;
-         }
-         if(!action)
-         {
-           console.log("key number");
-           return;
-         }
-
+         const keyContent = key.textContent;
+         const displayNum = display.textContent;
         
+
+          if(!action)
+          {
+            
+           if(displayNum==="0")
+            {
+              display.textContent = keyContent;
+            }
+            else
+            {
+              display.textContent = displayNum + keyContent; 
+            }
+             
+            
+          }
+          
+          if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
+          {
+            console.log("operator key pressed");
+            return;
+          }
+          if(action==="decimal")
+          {
+            console.log("decimal key pressed");
+            return;
+          }
+
+          if(action==="calculate")
+          {
+            console.log("calculate key pressed");
+            return;
+          }
+
+          if(action==="clear")
+          {
+            console.log("clear key pressed");
+            return;
+          }
 
           
       }
-   })
-    
-
+    });
     
     </script>
 
