@@ -5,6 +5,17 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="normalize.css" rel="stylesheet" type="text/css">
 
+    <script>
+    
+    function calculate(leftOperator,operator,rightOperator)
+    {
+      console.log(leftOperator);
+      console.log(operator);
+      console.log(rightOperator);
+    }
+    
+    </script>
+
 </head>
 
 
@@ -18,10 +29,10 @@
 
       <div class="keys-container">
   
-         <button class="plus-sign operators" data-action="add"> + </button>
-         <button class="minus-sign operators" data-action="substract"> - </button>
-         <button class="multiply-sign operators" data-action="multiply"> X </button>
-         <button class="division-sign operators" data-action="divide"> / </button>
+         <button class="plus-sign operators " data-action="add"> + </button>
+         <button class="minus-sign operators " data-action="substract"> - </button>
+         <button class="multiply-sign operators " data-action="multiply"> X </button>
+         <button class="division-sign operators " data-action="divide"> / </button>
          <button class="number7 numbers"> 7 </button>
          <button class="number8 numbers"> 8 </button>
          <button class="number9 numbers"> 9 </button>
@@ -42,6 +53,11 @@
 
     <script>
    const keys = document.querySelector(".keys-container");
+   let operatorLeft;
+   let operatorRight;
+   let operator;
+   let isKeyOperatorPressed;
+   let currentOperatorKey;
 
 
     keys.addEventListener("click",e=>{
@@ -52,6 +68,8 @@
       {
          const key = e.target;
          const action = key.dataset.action;
+
+
          
          const keyContent = key.textContent;
          const displayNum = display.textContent;
@@ -60,21 +78,42 @@
           if(!action)
           {
             
+           
            if(displayNum==="0")
             {
               display.textContent = keyContent;
+              
             }
             else
             {
+              
+              if(isKeyOperatorPressed)
+              {
+                display.textContent = keyContent;
+                operatorRight = keyContent;
+                isKeyOperatorPressed = false;
+                currentOperatorKey.classList.remove("highlighted");
+               
+               
+              }
+              else
+              {
               display.textContent = `${displayNum} ${keyContent}`;
+              operatorRight = display.textContent;
+              }
+             
            
             }
           }
           
           if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
           {
-            console.log("operator key pressed");
-            return;
+            key.classList.add("highlighted");
+            operatorLeft = display.textContent;
+            operator = action;
+            isKeyOperatorPressed = true;
+            currentOperatorKey = key;
+            
           }
           if(action==="decimal")
           {
@@ -83,8 +122,14 @@
 
           if(action==="calculate")
           {
-            console.log("calculate key pressed");
-            return;
+           
+           console.log(operatorLeft);
+           console.log(operatorRight);
+           console.log(operator);
+           
+           calculate(parseFloat(operatorLeft),operator,parseFloat(operatorRight));
+
+
           }
 
           if(action==="clear")

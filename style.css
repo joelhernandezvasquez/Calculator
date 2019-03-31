@@ -9,8 +9,6 @@
     --keys-border:20px;
 }
 
-
-
   /* Main Classes */
 
 
@@ -35,6 +33,11 @@
 {
     background:var(--numbers-color);
     font-size: var(--keys-font-size);
+}
+
+.highlighted
+{
+    background:gray;
 }
 
 
