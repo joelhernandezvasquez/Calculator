@@ -6,12 +6,55 @@
     <link href="normalize.css" rel="stylesheet" type="text/css">
 
     <script>
+
+      function deleteWhiteSpace(parameter)
+      {
+           return parameter.replace(/ +/g, "");
+      }
     
     function calculate(leftOperator,operator,rightOperator)
     {
+      let result = 0;
+
       console.log(leftOperator);
-      console.log(operator);
       console.log(rightOperator);
+
+     
+      if(operator==="add")
+      {
+        result = parseFloat(deleteWhiteSpace(leftOperator)) + parseFloat(deleteWhiteSpace(rightOperator));
+        console.log("add");
+        console.log(leftOperator);
+        console.log(rightOperator);
+      }
+      else
+        if(operator==="substract")
+        {
+         
+         result = parseFloat(deleteWhiteSpace(leftOperator)) - parseFloat(deleteWhiteSpace(rightOperator));
+         console.log("substract");
+        console.log(leftOperator);
+        console.log(rightOperator);
+        }
+    else
+    if(operator==="multiply")
+      {
+        result = parseFloat(deleteWhiteSpace(leftOperator)) * parseFloat(deleteWhiteSpace(rightOperator));
+        console.log("multiply");
+        console.log(leftOperator);
+        console.log(rightOperator);
+      }
+      else
+      if(operator==="divide")
+      {
+        result = parseFloat(deleteWhiteSpace(leftOperator)) / parseFloat(deleteWhiteSpace(rightOperator));
+        console.log("divide");
+        console.log(leftOperator);
+        console.log(rightOperator);
+      }
+
+      return result;
+      
     }
     
     </script>
@@ -68,9 +111,6 @@
       {
          const key = e.target;
          const action = key.dataset.action;
-
-
-         
          const keyContent = key.textContent;
          const displayNum = display.textContent;
         
@@ -90,7 +130,7 @@
               if(isKeyOperatorPressed)
               {
                 display.textContent = keyContent;
-                operatorRight = keyContent;
+                operatorRight.textContent = keyContent;
                 isKeyOperatorPressed = false;
                 currentOperatorKey.classList.remove("highlighted");
                
@@ -98,7 +138,7 @@
               }
               else
               {
-              display.textContent = `${displayNum} ${keyContent}`;
+              display.textContent = (`${displayNum} ${keyContent}`);
               operatorRight = display.textContent;
               }
              
@@ -123,11 +163,8 @@
           if(action==="calculate")
           {
            
-           console.log(operatorLeft);
-           console.log(operatorRight);
-           console.log(operator);
-           
-           calculate(parseFloat(operatorLeft),operator,parseFloat(operatorRight));
+        
+            display.textContent = calculate(operatorLeft,operator,operatorRight);
 
 
           }
