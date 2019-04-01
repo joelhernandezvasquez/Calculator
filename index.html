@@ -24,8 +24,8 @@
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) + parseFloat(deleteWhiteSpace(rightOperator));
         console.log("add");
-        console.log(leftOperator);
-        console.log(rightOperator);
+        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
+        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
       }
       else
         if(operator==="substract")
@@ -33,24 +33,24 @@
          
          result = parseFloat(deleteWhiteSpace(leftOperator)) - parseFloat(deleteWhiteSpace(rightOperator));
          console.log("substract");
-        console.log(leftOperator);
-        console.log(rightOperator);
+         console.log(parseFloat(deleteWhiteSpace(leftOperator)));
+        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
         }
     else
     if(operator==="multiply")
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) * parseFloat(deleteWhiteSpace(rightOperator));
         console.log("multiply");
-        console.log(leftOperator);
-        console.log(rightOperator);
+        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
+        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
       }
       else
       if(operator==="divide")
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) / parseFloat(deleteWhiteSpace(rightOperator));
         console.log("divide");
-        console.log(leftOperator);
-        console.log(rightOperator);
+        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
+        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
       }
 
       return result;
@@ -88,7 +88,7 @@
          <button class="number3 numbers"> 3 </button>
          <button class="number0 numbers"> 0 </button>
          <button class="decimal-sign numbers" data-action="decimal">. </button>
-         <button class="clear-sign numbers" data-action="clear">AC </button>
+         <button class="clear-sign numbers" data-action="clear"> AC </button>
 
       </div>
 
@@ -96,6 +96,7 @@
 
     <script>
    const keys = document.querySelector(".keys-container");
+   const clearKey = document.querySelector(".clear-sign");
    let operatorLeft;
    let operatorRight;
    let operator;
@@ -117,7 +118,10 @@
 
           if(!action)
           {
-            
+          
+          
+         
+           
            
            if(displayNum==="0")
             {
@@ -130,10 +134,9 @@
               if(isKeyOperatorPressed)
               {
                 display.textContent = keyContent;
-                operatorRight.textContent = keyContent;
+                operatorRight= display.textContent;
                 isKeyOperatorPressed = false;
                 currentOperatorKey.classList.remove("highlighted");
-               
                
               }
               else
