@@ -16,41 +16,29 @@
     {
       let result = 0;
 
-      console.log(leftOperator);
-      console.log(rightOperator);
-
      
       if(operator==="add")
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) + parseFloat(deleteWhiteSpace(rightOperator));
-        console.log("add");
-        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
-        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
       }
       else
         if(operator==="substract")
         {
          
          result = parseFloat(deleteWhiteSpace(leftOperator)) - parseFloat(deleteWhiteSpace(rightOperator));
-         console.log("substract");
-         console.log(parseFloat(deleteWhiteSpace(leftOperator)));
-        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
+         
         }
     else
     if(operator==="multiply")
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) * parseFloat(deleteWhiteSpace(rightOperator));
-        console.log("multiply");
-        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
-        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
+       
       }
       else
       if(operator==="divide")
       {
         result = parseFloat(deleteWhiteSpace(leftOperator)) / parseFloat(deleteWhiteSpace(rightOperator));
-        console.log("divide");
-        console.log(parseFloat(deleteWhiteSpace(leftOperator)));
-        console.log( parseFloat(deleteWhiteSpace(rightOperator)));
+        
       }
 
       return result;
@@ -96,7 +84,7 @@
 
     <script>
    const keys = document.querySelector(".keys-container");
-   const clearKey = document.querySelector(".clear-sign");
+   const clearbutton = document.querySelector(".clear-sign");
    let operatorLeft;
    let operatorRight;
    let operator;
@@ -107,6 +95,7 @@
     keys.addEventListener("click",e=>{
       
       const display = document.querySelector("#display");
+      let clearStatus = clearbutton.textContent;
       
       if(e.target.closest("button"))
       {
@@ -118,10 +107,7 @@
 
           if(!action)
           {
-          
-          
-         
-           
+            clearbutton.textContent = "CE";
            
            if(displayNum==="0")
             {
@@ -160,22 +146,38 @@
           }
           if(action==="decimal")
           {
+            if(!displayNum.includes("."))
+            {
+            clearbutton.textContent = "CE";
             display.textContent = displayNum + ".";
+            }
+
+            
           }
 
           if(action==="calculate")
           {
-           
-        
             display.textContent = calculate(operatorLeft,operator,operatorRight);
+            currentOperatorKey = null;
 
 
           }
 
           if(action==="clear")
           {
-            console.log("clear key pressed");
-            return;
+            
+            if(clearStatus==="CE")
+            {
+             display.textContent ="0";
+             clearbutton.textContent = "AC";
+             clearStatus = "AC";
+            }
+            else
+            {
+               operatorLeft ="";
+               operatorRight="";
+            }
+            
           }
 
           
