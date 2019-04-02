@@ -83,13 +83,14 @@
     </div>
 
     <script>
+   const calculator = document.querySelector(".calculator-container");
    const keys = document.querySelector(".keys-container");
    const clearbutton = document.querySelector(".clear-sign");
    let operatorLeft;
    let operatorRight;
    let operator;
    let isKeyOperatorPressed;
-   let currentOperatorKey;
+ 
 
 
     keys.addEventListener("click",e=>{
@@ -107,6 +108,7 @@
 
           if(!action)
           {
+            
             clearbutton.textContent = "CE";
            
            if(displayNum==="0")
@@ -133,6 +135,7 @@
              
            
             }
+            calculator.dataset.previousKeyType = 'number';
           }
           
           if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
@@ -142,23 +145,38 @@
             operator = action;
             isKeyOperatorPressed = true;
             currentOperatorKey = key;
+            calculator.dataset.previousKeyType = 'operator';
             
           }
           if(action==="decimal")
           {
-            if(!displayNum.includes("."))
+            
+
+            if(calculator.dataset.previousKeyType==='operator')
+            {
+              display.textContent = "0.";
+            }
+            else
+                if(!displayNum.includes("."))
             {
             clearbutton.textContent = "CE";
             display.textContent = displayNum + ".";
             }
 
-            
+            calculator.dataset.previousKeyType = 'decimal';
+
           }
 
           if(action==="calculate")
           {
+            
+            console.log(operatorLeft);
+            console.log(operatorRight);
+            
             display.textContent = calculate(operatorLeft,operator,operatorRight);
-            currentOperatorKey = null;
+          
+
+            calculator.dataset.previousKeyType = 'calculate';
 
 
           }
@@ -166,6 +184,7 @@
           if(action==="clear")
           {
             
+            currentOperatorKey.classList.remove("highlighted");
             if(clearStatus==="CE")
             {
              display.textContent ="0";
@@ -177,6 +196,8 @@
                operatorLeft ="";
                operatorRight="";
             }
+
+            calculator.dataset.previousKeyType = 'clear';
             
           }
 
