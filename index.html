@@ -86,10 +86,8 @@
    const calculator = document.querySelector(".calculator-container");
    const keys = document.querySelector(".keys-container");
    const clearbutton = document.querySelector(".clear-sign");
-   let operatorLeft;
-   let operatorRight;
-   let operator;
-   let isKeyOperatorPressed;
+    let currentOperatorKey = "";
+
  
 
 
@@ -119,18 +117,17 @@
             else
             {
               
-              if(isKeyOperatorPressed)
+              if(calculator.dataset.previousKeyType==="operator")
               {
                 display.textContent = keyContent;
-                operatorRight= display.textContent;
-                isKeyOperatorPressed = false;
+              
                 currentOperatorKey.classList.remove("highlighted");
                
               }
               else
               {
               display.textContent = (`${displayNum} ${keyContent}`);
-              operatorRight = display.textContent;
+             
               }
              
            
@@ -141,17 +138,26 @@
           if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
           {
             key.classList.add("highlighted");
-            operatorLeft = display.textContent;
-            operator = action;
-            isKeyOperatorPressed = true;
+           
+           if(currentOperatorKey==="")
+           {
             currentOperatorKey = key;
+           }
+           else
+           {
+            currentOperatorKey.classList.remove("highlighted");
+            calculator.dataset.OperatorLeft = displayNum;
+           calculator.dataset.operator = action;
             calculator.dataset.previousKeyType = 'operator';
+            currentOperatorKey = key;
+           }
+           
+            
             
           }
           if(action==="decimal")
           {
             
-
             if(calculator.dataset.previousKeyType==='operator')
             {
               display.textContent = "0.";
@@ -169,11 +175,17 @@
 
           if(action==="calculate")
           {
+           
+
+            const firstValue = calculator.dataset.OperatorLeft;
+            const operator = calculator.dataset.operator;
             
-            console.log(operatorLeft);
-            console.log(operatorRight);
-            
-            display.textContent = calculate(operatorLeft,operator,operatorRight);
+            if(calculator.dataset.previousKeyType==="number")
+            {
+            const secondValue = displayNum;
+
+            display.textContent = calculate(firstValue,operator,secondValue);
+            }
           
 
             calculator.dataset.previousKeyType = 'calculate';
@@ -184,7 +196,7 @@
           if(action==="clear")
           {
             
-            currentOperatorKey.classList.remove("highlighted");
+           
             if(clearStatus==="CE")
             {
              display.textContent ="0";
@@ -193,8 +205,7 @@
             }
             else
             {
-               operatorLeft ="";
-               operatorRight="";
+               
             }
 
             calculator.dataset.previousKeyType = 'clear';
