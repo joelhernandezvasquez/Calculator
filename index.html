@@ -138,19 +138,39 @@
           if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
           {
             key.classList.add("highlighted");
+            
+            const firstValue = calculator.dataset.OperatorLeft;
+            const operator = calculator.dataset.operator;
+            const secondValue = displayNum;
+
+            if(firstValue && operator && calculator.dataset.previousKeyType!="operator" ) // to check if they exist
+            {
+              const calcValue = calculate(firstValue, operator, secondValue);
+              display.textContent = calcValue;
+
+                 // Update calculated value as firstValue
+               calculator.dataset.firstValue = calcValue;
+               
+            }
+          
+  //// fix after this line
            
-           if(currentOperatorKey==="")
-           {
-            currentOperatorKey = key;
-           }
-           else
-           {
-            currentOperatorKey.classList.remove("highlighted");
+          if(currentOperatorKey!="")
+            {
+              
+              currentOperatorKey.classList.remove("highlighted");
             calculator.dataset.OperatorLeft = displayNum;
            calculator.dataset.operator = action;
             calculator.dataset.previousKeyType = 'operator';
             currentOperatorKey = key;
-           }
+            }
+            else
+            {
+              currentOperatorKey = key;
+             calculator.dataset.OperatorLeft = displayNum;
+           calculator.dataset.operator = action;
+            calculator.dataset.previousKeyType = 'operator';
+            }
            
             
             
@@ -184,6 +204,8 @@
             {
             const secondValue = displayNum;
 
+           
+
             display.textContent = calculate(firstValue,operator,secondValue);
             }
           
@@ -202,13 +224,12 @@
              display.textContent ="0";
              clearbutton.textContent = "AC";
              clearStatus = "AC";
+            
             }
-            else
-            {
-               
-            }
+           
 
             calculator.dataset.previousKeyType = 'clear';
+            currentOperatorKey = "";
             
           }
 
