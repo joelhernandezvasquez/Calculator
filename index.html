@@ -143,21 +143,23 @@
             const operator = calculator.dataset.operator;
             const secondValue = displayNum;
 
-            if(firstValue && operator && calculator.dataset.previousKeyType!="operator" ) // to check if they exist
+            if(firstValue && operator && calculator.dataset.previousKeyType!="operator") // to check if they exist
             {
               const calcValue = calculate(firstValue, operator, secondValue);
               display.textContent = calcValue;
 
                  // Update calculated value as firstValue
                calculator.dataset.firstValue = calcValue;
-               
+               console.log("three conditions");
             }
+           
           
   //// fix after this line
            
           if(currentOperatorKey!="")
             {
-              
+               console.log("current operator key");
+               console.log(displayNum);
               currentOperatorKey.classList.remove("highlighted");
             calculator.dataset.OperatorLeft = displayNum;
            calculator.dataset.operator = action;
@@ -166,6 +168,8 @@
             }
             else
             {
+              console.log("else current operator key");
+              console.log(displayNum);
               currentOperatorKey = key;
              calculator.dataset.OperatorLeft = displayNum;
            calculator.dataset.operator = action;
