@@ -142,6 +142,8 @@
             const firstValue = calculator.dataset.OperatorLeft;
             const operator = calculator.dataset.operator;
             const secondValue = displayNum;
+           
+            
 
             if(firstValue && operator && calculator.dataset.previousKeyType!="operator") // to check if they exist
             {
@@ -150,7 +152,7 @@
 
                  // Update calculated value as firstValue
                calculator.dataset.firstValue = calcValue;
-               console.log("three conditions");
+             
             }
            
           
@@ -158,24 +160,22 @@
            
           if(currentOperatorKey!="")
             {
-               console.log("current operator key");
-               console.log(displayNum);
+              
               currentOperatorKey.classList.remove("highlighted");
-            calculator.dataset.OperatorLeft = displayNum;
+            calculator.dataset.OperatorLeft = display.textContent;
            calculator.dataset.operator = action;
             calculator.dataset.previousKeyType = 'operator';
             currentOperatorKey = key;
             }
             else
             {
-              console.log("else current operator key");
-              console.log(displayNum);
+             
               currentOperatorKey = key;
-             calculator.dataset.OperatorLeft = displayNum;
+             calculator.dataset.OperatorLeft = display.textContent;
            calculator.dataset.operator = action;
             calculator.dataset.previousKeyType = 'operator';
             }
-           
+          
             
             
           }
@@ -203,16 +203,13 @@
 
             const firstValue = calculator.dataset.OperatorLeft;
             const operator = calculator.dataset.operator;
+           
             
-            if(calculator.dataset.previousKeyType==="number")
+            if(calculator.dataset.previousKeyType==="number" && firstValue)
             {
             const secondValue = displayNum;
-
-           
-
             display.textContent = calculate(firstValue,operator,secondValue);
             }
-          
 
             calculator.dataset.previousKeyType = 'calculate';
 
