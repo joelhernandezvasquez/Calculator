@@ -1,245 +1,434 @@
 <html>
 
 <head>
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="normalize.css" rel="stylesheet" type="text/css">
-
-    <script>
-
-      function deleteWhiteSpace(parameter)
-      {
-           return parameter.replace(/ +/g, "");
-      }
-    
-    function calculate(leftOperator,operator,rightOperator)
-    {
-      let result = 0;
-
-     
-      if(operator==="add")
-      {
-        result = parseFloat(deleteWhiteSpace(leftOperator)) + parseFloat(deleteWhiteSpace(rightOperator));
-      }
-      else
-        if(operator==="substract")
-        {
-         
-         result = parseFloat(deleteWhiteSpace(leftOperator)) - parseFloat(deleteWhiteSpace(rightOperator));
-         
-        }
-    else
-    if(operator==="multiply")
-      {
-        result = parseFloat(deleteWhiteSpace(leftOperator)) * parseFloat(deleteWhiteSpace(rightOperator));
-       
-      }
-      else
-      if(operator==="divide")
-      {
-        result = parseFloat(deleteWhiteSpace(leftOperator)) / parseFloat(deleteWhiteSpace(rightOperator));
-        
-      }
-
-      return result;
-      
-    }
-    
-    </script>
-
+    <script src="main.js"> </script>
 </head>
-
 
 <body>
 
-    <div class="calculator-container">
+<div class="wrapper">
 
-      <div class="display-container">
-          <div id="display">0</div>
-      </div>
+    <div class="header">
+     
+        <div class="hamburger-icon-container">
+            
+                <div class="bar1"> </div>
+                <div class="bar2"> </div>
+                <div class="bar3"> </div>
+        </div>
 
-      <div class="keys-container">
-  
-         <button class="plus-sign operators " data-action="add"> + </button>
-         <button class="minus-sign operators " data-action="substract"> - </button>
-         <button class="multiply-sign operators " data-action="multiply"> X </button>
-         <button class="division-sign operators " data-action="divide"> / </button>
-         <button class="number7 numbers"> 7 </button>
-         <button class="number8 numbers"> 8 </button>
-         <button class="number9 numbers"> 9 </button>
-         <button class="equal-sign" data-action="calculate"> = </button>
-         <button class="number4 numbers"> 4 </button>
-         <button class="number5 numbers"> 5 </button>
-         <button class="number6 numbers"> 6 </button>
-         <button class="number1 numbers"> 1 </button>
-         <button class="number2 numbers"> 2 </button>
-         <button class="number3 numbers"> 3 </button>
-         <button class="number0 numbers"> 0 </button>
-         <button class="decimal-sign numbers" data-action="decimal">. </button>
-         <button class="clear-sign numbers" data-action="clear"> AC </button>
+        <img src="img/logo.jpg" alt="No image" id="logo-brand">
 
-      </div>
+        <div class="welcome-message-container">
+          
+         <h2 class="font-style"> Welcome to</h1>
+         <h1 class="font-style">Mayelin Nails and Bar</h1>
+         <button class="btn">Haz Tu Cita</button>
+        </div>
+        
+    </div>
+
+    <div class="menu-bar">
+        
+        <ul>
+           <li> <a href="#"> Home </a></li> 
+           <li> <a href="#"> Sobre Nosotros </a></li> 
+           <li> <a href="#"> Servicios </a> </li> 
+           <li> <a href="#"> Productos </a></li> 
+           <li> <a href="#"> Galleria </a></li> 
+           <li> <a href="#"> Contacto </a></li>     
+        </ul>
+    </div>
+
+    <div class="appointment-container">
+     
+         <input type="image" src="img/iconfinder_basics-22_296812.png" id="close-icon">
+        
+         <div class="form">
+           <h1>Haz Tu Cita</h1>
+           <h2>llama al 809-447-9942</h2>
+        
+           <form action="#" method="post" id="form-appointment" >
+
+          
+           <label for="name">Nombre:</label>
+           <input type="text" id="name" name="nombre">
+           <p class="error-message" id="nameError"> *Por favor introdusca su nombre</p>
+
+           <label for="servicios">Servicios:</label>
+           <select>
+                <optgroup label="Servicios"></optgroup>
+                <option value="manicure"> Manicure </option>
+                <option value="pedicure"> pedicure </option>
+                <option value="drinks"> Drinks </option>
+           </select>
+
+           <label for="phone">Phone Number:</label>
+           <input type="tel" id="phone" name="phoneNumber">
+
+           <label for="email"> Email:</label>
+           <input type="email" id="email" name="email">
+           <p class="error-message" id="emailError"> *Por favor introdusca su email</p>
+           
+           <label for="mensaje"> Mensaje: </label>
+           <textarea id="mensaje">
+
+           </textarea>
+ 
+           <button type="submit" id="submit">Enviar</button>
+
+         </form>
+
+        </div>
+        
+    </div>
+
+    <div class="about-us">
+      <div class="title">
+        <h1 class="heading"> Quienes Somos?</h1>
+       </div>
+
+       <div class="about-us-picture">
+          <img src="img/mayelin profile.jpg">
+       </div>
+
+       <div class="about-us-profile">
+        <p>Todos Conocen Nuestro Proyecto 
+          Ahora Bien Hablemos un poquito de mi💕. Mi Nombre es Mayelin Romero 
+           Egresada de La UASD en la carrera de Licenciatura en Informática y
+           CEO en @MayelinNailsBar a los 25 Años. 
+           Nuestro Proyecto @MayelinNailsBar lleva ya casi 4 años de vigencia pero en 
+          la vida todo es un proceso y al inicio fue Sola, Después en un Salón y así 
+          poco a poco escalando con esfuerzos llevo 10 años de labor en un trabajo que me 
+          apasiona.  Nos sentimos sumamente agradecidas pues Gracias a Ustedes siempre 
+         estamos en en la eleccion de su preferencia! </p>
+
+         <button class="btn">Read More</button>
+       </div>
 
     </div>
 
-    <script>
-   const calculator = document.querySelector(".calculator-container");
-   const keys = document.querySelector(".keys-container");
-   const clearbutton = document.querySelector(".clear-sign");
-    let currentOperatorKey = "";
-
- 
-
-
-    keys.addEventListener("click",e=>{
-      
-      const display = document.querySelector("#display");
-      let clearStatus = clearbutton.textContent;
-      
-      if(e.target.closest("button"))
-      {
-         const key = e.target;
-         const action = key.dataset.action;
-         const keyContent = key.textContent;
-         const displayNum = display.textContent;
+    <div class="services-container">
         
+        <div class="heading-service">
+           <h1 class="heading">Servicios</h1>
+        </div>
 
-          if(!action)
-          {
-            
-            clearbutton.textContent = "CE";
+        <div class="manicure-container">
+        
+                <div class="service-card">
+                 
+                  <div class="service-card-header">
+                    <img src="img/VCGF1794.jpg"> 
+                </div>
+                 
+                  <div class="service-card-body">
+                    <h2 class="font-style"> Moderno y Tradicional</h2>
+                    <h1 class="font-style">Manicure</h1>
+                    <button class="btn"> Click Here</button>
+                  </div>
+                </div>
+        </div>
+
+        <div class="pedicure-container">
+        
+                <div class="service-card">
+                 
+                  <div class="service-card-header">
+                    <img src="img/JDUY1480.jpg"> 
+                      </div>
+                       
+                        <div class="service-card-body">
+                          <h2 class="font-style"> Time to treat your nail</h2>
+                          <h1 class="font-style">Pedicure</h1>
+                          <button class="btn"> Click Here</button>
+                        </div>
+                      </div>
+        </div>
+
+        <div class="drinks-container">
+                <div class="service-card">
+                 
+                        <div class="service-card-header">
+                          <img src="img/KHZE7597.jpg"> 
+                            </div>
+                             
+                              <div class="service-card-body">
+                                <h2 class="font-style"> Refresh yourself</h2>
+                                <h1 class="font-style">Drinks</h1>
+                                <button class="btn"> Click Here</button>
+                              </div>
+                            </div>
+        </div>
+    </div>
+
+    <div class="products-container">
+           <div class="heading-products">
+            <h1 class="heading">Nuestros Productos</h1>
+           </div>
+
+           <div class="products-card">
+             <img src="img/VGEO1567.jpg">
+             <h1 class="heading">Quimica Alemana</h1>
+             <h2>Endurecedor de uñas</h2>
+           </div>
+
+           <div class="products-card">
+            <img src="img/DPXZ1594.jpg">
+            <h1 class="heading">Gummies Vitaminas</h1>
+            <h2>Crecimiento de uñas y pelos</h2>
+          </div>
+
+          <div class="products-card">
+            <img src="img/RBLU2763.jpg">
+            <h1 class="heading">Critical Repair</h1>
+            <h2>Crema Hidratante para talones</h2>
+          </div>
+
+          <div class="products-card">
+            <img src="img/JFLC8824.jpg">
+            <h1 class="heading">Mini Nourish</h1>
+            <h2>Hidratante de cuticulas</h2>
+          </div>
+
+          <div class="products-card">
+            <img src="img/LJMK5785.jpg">
+            <h1 class="heading">Manicure en Gel</h1>
+            <h2>Gel para Uñas</h2>
+          </div>
+
+          <button class="btn">Ver Productos</button>
            
-           if(displayNum==="0")
-            {
-              display.textContent = keyContent;
-              
-            }
-            else
-            {
-              
-              if(calculator.dataset.previousKeyType==="operator")
-              {
-                display.textContent = keyContent;
-              
-                currentOperatorKey.classList.remove("highlighted");
-               
-              }
-              else
-              {
-              display.textContent = (`${displayNum} ${keyContent}`);
-             
-              }
-             
+    </div>
+
+       <div class="gallery-container">
+       
+      <div class="heading-gallery">
+        <h1 class="heading">Gallery</h1>
+       </div>
+
+       <div class="gallery-slide-show">
+         
+        <input type="image" src="img/iconfinder_error-fill_3017946.png" id="close-icon" class="close-gallery-container">
+         
+         <div class="carrousel-gallery-container">
+         
+          <div class="left-arrow-gallery">
+            <div class="left"> </div>
+          </div>
+
+          <div class="track-container-gallery">
+
+            <div class="slide slide-selected" data-slide = "first">
+              <img src="img/61959658_2401570853219567_3722258846169694208_n.jpg" class="responsive-images">
+            </div>
+
+            <div class="slide" data-slide = "second">
+              <img src="img/67306991_2493057797404205_7867638431319326720_n.jpg" class="responsive-images">
+            </div>
+
+            <div class="slide" data-slide = "third">
+              <img src="img/67327718_2502763066433678_7677955255140614144_n.jpg" class="responsive-images">
+            </div>
+
+            <div class="slide" data-slide = "fourth">
+              <img src="img/67439993_2503675533009098_8098456527926460416_n.jpg" class="responsive-images">
+            </div>
+
+            <div class="slide" data-slide = "fifth">
+              <img src="img/67620428_2507509262625725_1255349911906418688_n.jpg" class="responsive-images">
+            </div>
+
+            <div class="slide" data-slide = "sixth">
+              <img src="img/66290528_2467362809973704_5262175488469630976_n.jpg" class="responsive-images">
+            </div>
+          </div>
+
+          <div class="right-arrow-gallery">
            
-            }
-            calculator.dataset.previousKeyType = 'number';
-          }
+            <div class="right"> </div>
+          </div>
+
+          <div class="dots-image-container">
           
-          if(action==="add" || action==="substract" || action ==="multiply" || action ==="divide")
-          {
-            key.classList.add("highlighted");
-            
-            const firstValue = calculator.dataset.OperatorLeft;
-            const operator = calculator.dataset.operator;
-            const secondValue = displayNum;
-           
-            
+            <div> </div>
+          <div> </div>
+          <div> </div>
+          <div > </div>
+          <div > </div>
+          <div > </div>
+          </div>
 
-            if(firstValue && operator && calculator.dataset.previousKeyType!="operator") // to check if they exist
-            {
-              const calcValue = calculate(firstValue, operator, secondValue);
-              display.textContent = calcValue;
-
-                 // Update calculated value as firstValue
-               calculator.dataset.firstValue = calcValue;
-             
-            }
-           
-          
-  //// fix after this line
-           
-          if(currentOperatorKey!="")
-            {
-              
-              currentOperatorKey.classList.remove("highlighted");
-            calculator.dataset.OperatorLeft = display.textContent;
-           calculator.dataset.operator = action;
-            calculator.dataset.previousKeyType = 'operator';
-            currentOperatorKey = key;
-            }
-            else
-            {
-             
-              currentOperatorKey = key;
-             calculator.dataset.OperatorLeft = display.textContent;
-           calculator.dataset.operator = action;
-            calculator.dataset.previousKeyType = 'operator';
-            }
-          
-            
-            
-          }
-          if(action==="decimal")
-          {
-            
-            if(calculator.dataset.previousKeyType==='operator')
-            {
-              display.textContent = "0.";
-            }
-            else
-                if(!displayNum.includes("."))
-            {
-            clearbutton.textContent = "CE";
-            display.textContent = displayNum + ".";
-            }
-
-            calculator.dataset.previousKeyType = 'decimal';
-
-          }
-
-          if(action==="calculate")
-          {
-           
-
-            const firstValue = calculator.dataset.OperatorLeft;
-            const operator = calculator.dataset.operator;
-           
-            
-            if(calculator.dataset.previousKeyType==="number" && firstValue)
-            {
-            const secondValue = displayNum;
-            display.textContent = calculate(firstValue,operator,secondValue);
-            }
-
-            calculator.dataset.previousKeyType = 'calculate';
+         </div>
+      </div>
 
 
-          }
+      <div class="image-cards"> 
+         
+        <img src="img/61959658_2401570853219567_3722258846169694208_n.jpg" class="responsive-images"data-image="1"> 
+        <div class="image-overlay">
+           <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+        </div>
 
-          if(action==="clear")
-          {
-            
-           
-            if(clearStatus==="CE")
-            {
-             display.textContent ="0";
-             clearbutton.textContent = "AC";
-             clearStatus = "AC";
-            
-            }
-           
+      </div>
+      
+      <div class="image-cards"> 
+        <img src="img/67306991_2493057797404205_7867638431319326720_n.jpg" class="responsive-images" data-image="2">
+        <div class="image-overlay">
+            <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+         </div>
+      </div>
 
-            calculator.dataset.previousKeyType = 'clear';
-            currentOperatorKey = "";
-            
-          }
+      <div class="image-cards">   
+        <img src="img/67327718_2502763066433678_7677955255140614144_n.jpg" class="responsive-images" data-image="3"> 
+        <div class="image-overlay">
+            <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+         </div>
+      </div>
+      <div class="image-cards">  
+        <img src="img/67439993_2503675533009098_8098456527926460416_n.jpg" class="responsive-images" data-image="4">
+        <div class="image-overlay">
+            <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+         </div>
+      </div>
+      
+      <div class="image-cards">  
+        <img src="img/67620428_2507509262625725_1255349911906418688_n.jpg" class="responsive-images" data-image="5">  
+        <div class="image-overlay">
+            <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+         </div>
+      </div>
+     
+      <div class="image-cards">   <img src="img/66290528_2467362809973704_5262175488469630976_n.jpg" class="responsive-images" data-image="6">  
+        <div class="image-overlay">
+            <img src="img/iconfinder_Pinterest_UI-15_2540589.svg" id="magnify">
+         </div>
+      </div>  
 
-          
-      }
-    });
+     
     
-    </script>
+    </div>  
 
+    <div class="testimony-container">
+           <div class="heading-testimony">
+            <h2>Testimonios</h2>
+            <h1 class="heading">Que dicen nuestros Clientes?</h1>
+           </div>
+
+           <div class="carrousel">
+
+            <div class="left-arrow">
+            <input type="image" src="img/iconfinder_arrow-left_227602.svg" class="arrow">
+            </div>
+
+            <div class="slide-container">
+               <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCatherine.MakeyDelaney%2Fposts%2F10154282657423214%3A0&width=500" width="500" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+               <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frobertnyadira.mccoy%2Fposts%2F10157233003112367&width=500" width="500" height="755" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
+              </div>
+
+            <div class="right-arrow">
+              <input type="image" src="img/iconfinder_arrow-right_227601.svg" class="arrow">
+            </div>
+
+            <div class="dots-container">
+               <div class="dot"></div>
+               <div class="dot"></div>
+               <div class="dot"></div>
+            </div>
+
+           
+           </div>
+    </div>
+
+    <div class="contact-container">
+            <h1 class="heading"> Contactanos</h1>
+
+            <div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8574491036106!2d-70.35349824981627!3d19.37532414746675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eae28d8fbfb031f%3A0x54ec362bdd44c8cd!2sMayelin%20Nails%20And%20Bar!5e0!3m2!1sen!2sus!4v1567265523075!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" class="map"></iframe>
+            </div>
+    </div>
+
+    <div class="horario-container">
+           
+       <div class="dirrection-contact">
+       
+           <div class="info-contact">
+              <img src="img/5d39adc2872e33b8cab6dfd4_iconfinder_simpline_18_2305591.png" id="address-icon">
+              <p class="paragraph">Direccion: Calle Regino Camilo #7 , Tenares  Republica Dominicana</p>
+          </div> 
+         
+       </div>
+
+       <div class="phone-contact">
+         
+        <div class="info-contact">
+          <img src="img/5d39adcfeeeaade6d90e6b55_iconfinder_viber_519179.png" class="icon">
+          <p class="paragraph">Phone number: 809-447-9942</p>
+      </div> 
+          
+      </div>
+
+      <div class="email-contact">
+        <div class="info-contact">
+          <img src="img/5d39add9040fc866cbdfe7e2_iconfinder_simpline_42_2305620.png" class="icon">
+          <p class="paragraph">Email: Mayelinnail@gmail.com</p>
+      </div> 
+
+      </div>
+
+      <div class="schedule-box">
+         <h1>Nuestros Horarios </h1>
+         <h2>Lunes a Sabado 9:00 AM - 6:00 PM</h2>
+         <h2>Domingo estamos cerrado</h2>
+      </div>
+       
+    </div>
+
+    <div class="footer">
+         <img src="img/logo.jpg" id="logo-brand-footer">
+         <h1> Mayelin Nails and Bar</h1>
+         <div class="social-media-container">
+           <input type="image" src="img/5d3c501073102c99b6bf5efa_iconfinder_facebook_1632509.png" class="media-icon">
+           <input type="image" src="img/5d3c514c73102c6852bf613d_iconfinder_instagram_1632517.png" class="media-icon">
+           <input type="image" src="img/5d3c51aa73102c7504bf61ae_iconfinder_messenger_3069715.png" class="media-icon">
+         </div>
+         <p> © 2019 All rights reserved. Design by Joel Hernandez</p>
+    </div>
+
+</div>
+
+
+<script>
+
+const menuBar = document.querySelector(".menu-bar");
+const menuIcon = document.querySelector(".hamburger-icon-container");
+const btnAppointment = document.querySelector(".btn");
+const closebtn = document.querySelector("#close-icon");
+const formulario = document.querySelector("#form-appointment");
+const btnSubmit = document.querySelector("#submit");
+const galleryContainer = document.querySelector(".gallery-container");
+const closeGalleryContainer = document.querySelector(".close-gallery-container");
+
+
+menuBar.addEventListener("mouseover",hoverMenuItems);
+menuBar.addEventListener("mouseout",hoverOutMenuItems);
+menuBar.addEventListener("mouseover",hoverLinks);
+menuIcon.addEventListener("click",openMenuBar);
+btnAppointment.addEventListener("click",openAppointmentForm);
+closebtn.addEventListener("click",closeAppointmentForm);
+formulario.addEventListener("submit",submitAppointment);
+galleryContainer.addEventListener("click",openGallerySlideShow);
+closeGalleryContainer.addEventListener("click",closeGallery);
+
+
+
+
+
+</script>
 </body>
 
 </html>
